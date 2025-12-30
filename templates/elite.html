@@ -3,11 +3,11 @@
    <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <title>Portfolio - Akash Yadav</title>
-      <meta name="description" content="My Personal Portfolio: A showcase of technical skills, design aesthetics, and projects built with advanced animations and clean UI."/>
-      <meta property="og:title" content="Portfolio - Akash Yadav"/>
-      <meta property="og:description" content="Personal Portfolio Website Case Study."/>
-      <meta property="og:image" content="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop"/>
+      <title>ELITE - Akash Yadav</title>
+      <meta name="description" content="ELITE: A premium Cafe & Bar website featuring modern design, menu showcase, and reservation system."/>
+      <meta property="og:title" content="ELITE - Akash Yadav"/>
+      <meta property="og:description" content="Premium Cafe & Bar Website."/>
+      <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000&auto=format&fit=crop"/>
       
       <link rel="preload" as="font" href="https://dennissnellenberg.com/assets/fonts/NeueMontreal-Regular.otf" type="font/otf" crossorigin="anonymous">
       <link href="https://dennissnellenberg.com/assets/css/normalize.css" rel="stylesheet">
@@ -34,7 +34,7 @@
                <div class="rounded-div"></div>
             </div>
             <div class="loading-words">
-               <h2 class="active home-active-first home-active-last">Portfolio<div class="dot"></div></h2>
+               <h2 class="active home-active-first home-active-last">ELITE<div class="dot"></div></h2>
                
                <h2>Home<div class="dot"></div></h2>
                <h2>Projects<div class="dot"></div></h2>
@@ -74,22 +74,22 @@
                   <div class="stripe"></div>
                   <ul class="links-wrap">
                      <li class="btn btn-link">
-                        <a href="skyy.html" class="btn-click magnetic" data-strength="24" data-strength-text="12">
+                        <a href="{{ url_for('home') }}" class="btn-click magnetic" data-strength="24" data-strength-text="12">
                         <span class="btn-text"><span class="btn-text-inner">Home</span></span>
                         </a>
                      </li>
                      <li class="btn btn-link active">
-                        <a href="projects.html" class="btn-click magnetic" data-strength="24" data-strength-text="12">
+                        <a href="{{ url_for('projects') }}" class="btn-click magnetic" data-strength="24" data-strength-text="12">
                         <span class="btn-text"><span class="btn-text-inner">Projects</span></span>
                         </a>
                      </li>
                      <li class="btn btn-link">
-                        <a href="about.html" class="btn-click magnetic" data-strength="24" data-strength-text="12">
+                        <a href="{{ url_for('about') }}" class="btn-click magnetic" data-strength="24" data-strength-text="12">
                         <span class="btn-text"><span class="btn-text-inner">About</span></span>
                         </a>
                      </li>
                      <li class="btn btn-link">
-                        <a href="contact.html" class="btn-click magnetic" data-strength="24" data-strength-text="12">
+                        <a href="{{ url_for('contact') }}" class="btn-click magnetic" data-strength="24" data-strength-text="12">
                         <span class="btn-text"><span class="btn-text-inner">Contact</span></span>
                         </a>
                      </li>
@@ -117,7 +117,7 @@
                   <div class="nav-bar">
                      <div class="credits-top">
                         <div class="btn btn-link btn-left-top">
-                           <a href="skyy.html" class="btn-click magnetic" data-strength="20" data-strength-text="10">
+                           <a href="{{ url_for('home') }}" class="btn-click magnetic" data-strength="20" data-strength-text="10">
                            <span class="btn-text">
                               <div class="credit"><span>©</span></div>
                               <div class="cbd"><span class="code-by">Code by </span><span class="dennis"><span class="dennis-span">Akash</span> <span class="snellenberg">Yadav</span></span></span></div>
@@ -127,17 +127,17 @@
                      </div>
                      <ul class="links-wrap">
                         <li class="btn btn-link active">
-                           <a href="projects.html" class="btn-click magnetic" data-strength="20" data-strength-text="10">
+                           <a href="{{ url_for('projects') }}" class="btn-click magnetic" data-strength="20" data-strength-text="10">
                            <span class="btn-text"><span class="btn-text-inner">Projects</span></span>
                            </a>
                         </li>
                         <li class="btn btn-link">
-                           <a href="about.html" class="btn-click magnetic" data-strength="20" data-strength-text="10">
+                           <a href="{{ url_for('about') }}" class="btn-click magnetic" data-strength="20" data-strength-text="10">
                            <span class="btn-text"><span class="btn-text-inner">About</span></span>
                            </a>
                         </li>
                         <li class="btn btn-link">
-                           <a href="contact.html" class="btn-click magnetic" data-strength="20" data-strength-text="10">
+                           <a href="{{ url_for('contact') }}" class="btn-click magnetic" data-strength="20" data-strength-text="10">
                            <span class="btn-text"><span class="btn-text-inner">Contact</span></span>
                            </a>
                         </li>
@@ -151,7 +151,7 @@
                   <div class="container medium once-in">
                      <div class="row">
                         <div class="flex-col">
-                           <h1>Portfolio</h1>
+                           <h1>ELITE</h1>
                         </div>
                      </div>
                   </div>
@@ -160,14 +160,14 @@
                   <div class="container medium">
                      <div class="row">
                         <div class="flex-col">
-                           <h5>Role / Services</h5>
+                           <h5>Role / Tech</h5>
                            <div class="stripe"></div>
                            <li><p>Web Design & Dev</p></li>
                         </div>
                         <div class="flex-col">
                            <h5>Concept</h5>
                            <div class="stripe"></div>
-                           <li><p>Personal Brand Identity</p></li>
+                           <li><p>Premium Cafe Bar</p></li>
                         </div>
                         <div class="flex-col">
                            <h5>Year</h5>
@@ -183,16 +183,16 @@
                         <div class="flex-col">
                            <div class="btn-wrap theme-dark">
                               <div class="btn btn-round" data-scroll data-scroll-speed="2"  data-scroll-position="top">
-                                 <a href="skyy.html" target="_blank" class="btn-click magnetic " data-strength="100" data-strength-text="50">
+                                 <a href="https://premium-caf-bar-webs-h770.bolt.host" target="_blank" class="btn-click magnetic " data-strength="100" data-strength-text="50">
                                     <div class="btn-fill"></div>
                                     <span class="btn-text">
-                                       <span class="btn-text-inner">View Source <div class="arrow"><?xml version="1.0" encoding="UTF-8"?><svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-1019.000000, -279.000000)" stroke="#FFFFFF" stroke-width="1.5"><g transform="translate(1026.000000, 286.000000) rotate(90.000000) translate(-1026.000000, -286.000000) translate(1020.000000, 280.000000)"><polyline points="2.76923077 0 12 0 12 9.23076923"></polyline><line x1="12" y1="0" x2="0" y2="12"></line></g></g></g></svg></div></span>
+                                       <span class="btn-text-inner">Visit Site <div class="arrow"><?xml version="1.0" encoding="UTF-8"?><svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-1019.000000, -279.000000)" stroke="#FFFFFF" stroke-width="1.5"><g transform="translate(1026.000000, 286.000000) rotate(90.000000) translate(-1026.000000, -286.000000) translate(1020.000000, 280.000000)"><polyline points="2.76923077 0 12 0 12 9.23076923"></polyline><line x1="12" y1="0" x2="0" y2="12"></line></g></g></g></svg></div></span>
                                     </span>
                                  </a>
                               </div>
                            </div>
                            <div class="single-image">
-                              <img class="overlay lazy" data-scroll data-scroll-speed="-1" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop" data-src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop" />
+                              <img class="overlay lazy" data-scroll data-scroll-speed="-1" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop" data-src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop" />
                            </div>
                         </div>
                      </div>
@@ -206,7 +206,7 @@
                      <div class="flex-col">
                         <div class="device">
                            <div class="single-image">
-                                <div class="overlay overlay-image" style="background-image: url('portfolio.png'); background-size: cover; background-position: center;"></div>
+                                <div class="overlay overlay-image" style="background-image: url('elite.png'); background-size: cover; background-position: center;"></div>
                            </div>
                            <div class="overlay-device-image">
                               <div class="overlay overlay-device" style="background: url('https://dennissnellenberg.com/assets/img/device-mbp-16-lower-nonotch.png') center center no-repeat; background-size: cover;"></div>
@@ -221,7 +221,7 @@
                <div class="row">
                   <div class="flex-col">
                      <div class="single-image">
-                        <div class="overlay overlay-image" data-scroll data-scroll-speed="-3" style="background-image: url('portfolio2.png'); background-size: cover;"></div>
+                        <div class="overlay overlay-image" data-scroll data-scroll-speed="-3" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop'); background-size: cover;"></div>
                         <div class="overlay dark-overlay" style="opacity: 0.2;"></div>
                      </div>
                   </div>
@@ -236,14 +236,14 @@
             <div class="footer-wrap footer-case-wrap theme-dark" data-scroll-section>
                <section class="section footer" data-scroll data-scroll-speed="-4" data-scroll-position="bottom" data-scroll-offset="-25%, 0%">
                   <div class="container medium">
-                     <a href="rumi.html" class="row next-case-btn">
+                     <a href="{{ url_for('portfolio') }}" class="row next-case-btn">
                         <div class="flex-col">
                            <p>Next case</p>
-                           <h2>RUMI</h2>
+                           <h2>Portfolio</h2>
                         </div>
                         <div class="tile-image-wrap">
                            <div class="tile-image">
-                              <div class="overlay overlay-image lazy" data-scroll data-scroll-speed="2.5" data-scroll-position="bottom" style="background-color:#E0D9D1; background-position: center center; background-repeat: no-repeat; background-size: cover;" data-bg="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=800&auto=format&fit=crop"></div>
+                              <div class="overlay overlay-image lazy" data-scroll data-scroll-speed="2.5" data-scroll-position="bottom" style="background-color:#E0D9D1; background-position: center center; background-repeat: no-repeat; background-size: cover;" data-bg="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"></div>
                            </div>
                         </div>
                      </a>
@@ -253,17 +253,17 @@
                         </div>
                      </div>
                      <div class="row">
-   <div class="flex-col">
-      <div class="btn btn-normal" style="margin-top: 150px;">
-         <a href="project.html" class="btn-click magnetic" data-strength="25" data-strength-text="15">
-            <div class="btn-fill"></div>
-            <span class="btn-text">
-               <span class="btn-text-inner change">All Projects<div class="count-nr">3</div></span>
-            </span>
-         </a>
-      </div>
-   </div>
-</div>
+                        <div class="flex-col">
+                           <div class="btn btn-normal">
+                              <a href="{{ url_for('projects') }}" class="btn-click magnetic" data-strength="25" data-strength-text="15">
+                                 <div class="btn-fill"></div>
+                                 <span class="btn-text">
+                                 <span class="btn-text-inner change">All Projects<div class="count-nr">3</div></span>
+                                 </span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                   <div class="container no-padding">
                      <div class="row bottom-footer">
