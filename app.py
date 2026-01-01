@@ -115,6 +115,37 @@ def view_messages():
         return html
     except Exception as e:
         return f"Error: {e}"
+# ... baaki code upar ...
+
+# --- YE NAYA CODE HAI (Table Banane ke liye) ---
+@app.route('/fix-db')
+def fix_db():
+    if not DATABASE_URL:
+        return "Database connect nahi hai!"
+    
+    try:
+        conn = psycopg2.connect(DATABASE_URL)
+        cursor = conn.cursor()
+        
+        # Zabardasti Table Create karo
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS messages (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                phone TEXT,
+                company TEXT,
+                service TEXT,
+                message TEXT NOT NULL
+            )
+        ''')
+        conn.commit()
+        conn.close()
+        return "✅ Success! Table ban gayi hai. Ab form bharo."
+    except Exception as e:
+        return f"❌ Error: {e}"
+
+# ... if __name__ == "__main__": ...
 
 if __name__ == "__main__":
     init_db()
