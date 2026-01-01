@@ -4,36 +4,8 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Render se Database ka Link uthayenge
+# Database Link uthao
 DATABASE_URL = os.environ.get('DATABASE_URL')
-
-# --- DATABASE SETUP FUNCTION ---
-def init_db():
-    # Agar Database Link nahi mila (matlab Localhost), toh kuch mat karo
-    if not DATABASE_URL:
-        return
-
-    try:
-        conn = psycopg2.connect(DATABASE_URL)
-        cursor = conn.cursor()
-        # Table Create (Postgres Syntax)
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS messages (
-                id SERIAL PRIMARY KEY,
-                name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                phone TEXT,
-                company TEXT,
-                service TEXT,
-                message TEXT NOT NULL
-            )
-        ''')
-        conn.commit()
-        conn.close()
-        print("✅ Database Connected & Table Ready!")
-    except Exception as e:
-        print(f"❌ DB Error: {e}")
-# -------------------------------
 
 @app.route('/')
 def home():
@@ -55,6 +27,10 @@ def portfolio():
 def about():
     return render_template('about.html')
 
+@app.route('/projects')
+def projects():
+    return render_template('project.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -65,20 +41,18 @@ def contact():
         service = request.form.get('service')
         message = request.form.get('message')
 
-        # Agar Database connected hai, tabhi save karo
         if DATABASE_URL:
             try:
                 conn = psycopg2.connect(DATABASE_URL)
                 cursor = conn.cursor()
-                # Postgres me '?' ki jagah '%s' use hota hai
+                # Data Save kar rahe hain (Saare columns)
                 cursor.execute('''
                     INSERT INTO messages (name, email, phone, company, service, message)
                     VALUES (%s, %s, %s, %s, %s, %s)
                 ''', (name, email, phone, company, service, message))
-                
                 conn.commit()
                 conn.close()
-                print("✅ Data Saved to Cloud!")
+                print("✅ Data Saved!")
             except Exception as e:
                 print(f"❌ Save Error: {e}")
         
@@ -86,15 +60,11 @@ def contact():
 
     return render_template('contact.html')
 
-@app.route('/projects')
-def projects():
-    return render_template('project.html')
-
-# --- ADMIN PANEL (Messages Dekhne ke liye) ---
+# --- UPDATED ADMIN PANEL (Ab sab kuch dikhega) ---
 @app.route('/view_messages')
 def view_messages():
     if not DATABASE_URL:
-        return "<h3>Database not connected (Check Environment Variable)</h3>"
+        return "Database connect nahi hai!"
         
     try:
         conn = psycopg2.connect(DATABASE_URL)
@@ -103,31 +73,44 @@ def view_messages():
         data = cursor.fetchall()
         conn.close()
 
+        # Table Headers (Ab 6 Columns hain)
         html = """
-        <h2 style='font-family: sans-serif;'>📬 Inbox (Cloud DB)</h2>
-        <table border='1' cellpadding='10' style='border-collapse: collapse; font-family: sans-serif;'>
-            <tr style='background: #eee;'><th>Name</th><th>Email</th><th>Message</th></tr>
+        <h2 style='font-family: sans-serif;'>📬 Inbox (Full Details)</h2>
+        <table border='1' cellpadding='10' style='border-collapse: collapse; font-family: sans-serif; width: 100%;'>
+            <tr style='background: #eee;'>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Company</th>
+                <th>Service</th>
+                <th>Message</th>
+            </tr>
         """
+        
+        # Table Rows (Database se data nikal kar cell mein daalna)
         for row in data:
-            html += f"<tr><td>{row[1]}</td><td>{row[2]}</td><td>{row[6]}</td></tr>"
+            html += f"""
+            <tr>
+                <td>{row[0]}</td> <td>{row[1]}</td> <td>{row[2]}</td> <td>{row[3]}</td> <td>{row[4]}</td> <td>{row[5]}</td> <td>{row[6]}</td> </tr>
+            """
         
         html += "</table>"
         return html
     except Exception as e:
         return f"Error: {e}"
-# ... baaki code upar ...
 
-# --- YE NAYA CODE HAI (Table Banane ke liye) ---
+# --- ONE-TIME FIX ROUTE (Table Banane ke liye) ---
 @app.route('/fix-db')
 def fix_db():
     if not DATABASE_URL:
-        return "Database connect nahi hai!"
+        return "Database URL nahi mili!"
     
     try:
         conn = psycopg2.connect(DATABASE_URL)
         cursor = conn.cursor()
         
-        # Zabardasti Table Create karo
+        # Table Create karo (Agar nahi hai toh)
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS messages (
                 id SERIAL PRIMARY KEY,
@@ -141,12 +124,9 @@ def fix_db():
         ''')
         conn.commit()
         conn.close()
-        return "✅ Success! Table ban gayi hai. Ab form bharo."
+        return "✅ Success! Database Table ban gayi hai. Ab /contact par jao."
     except Exception as e:
         return f"❌ Error: {e}"
 
-# ... if __name__ == "__main__": ...
-
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
